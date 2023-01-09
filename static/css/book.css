@@ -5,7 +5,6 @@ body {
     overflow: hidden;
     margin: 0;
     background: linear-gradient(90deg, lightblue, lightyellow);
-    padding: 40px 40px 40px 40px;
 }
 #main-div{
     display:flex;

@@ -74,7 +74,7 @@ def data():
     cursor.close()
   else:
     user = None
-  if user is not None:
+  if user:
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM books")
     rows = cursor.fetchall()
@@ -85,31 +85,41 @@ def data():
 
 @app.route('/data-fetch')
 def data_fetch():
-  if session.get('email'):
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT name FROM users WHERE email=(%s)", (session['email'],))
-    user = cursor.fetchone()
-    cursor.close()
-  else:
-    user = None
-  if user is not None:
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM books")
-    rows = cursor.fetchall()
-    cursor.close()
-    return jsonify(rows)
-  return redirect(url_for('login'))
+  cursor = conn.cursor(dictionary=True)
+  cursor.execute("SELECT * FROM books")
+  rows = cursor.fetchall()
+  cursor.close()
+  return jsonify(rows)
+
+@app.route('/data-fetch-management')
+def data_fetch_manage():
+  cursor = conn.cursor(dictionary=True)
+  cursor.execute("SELECT * FROM books ORDER BY ID DESC LIMIT 10;")
+  rows = cursor.fetchall()
+  cursor.close()
+  return jsonify(rows)
 
 @app.route('/add', methods=['POST'])
 def add_data():
   cursor = conn.cursor(dictionary=True)
   data = request.get_json()
-  id = data['id']
   book = data['book']
   author = data['author']
   isbn = data['isbn']
   description = data['description']
-  cursor.execute("INSERT INTO books (ID, Books, Author, ISBN, Description) VALUES (%s, %s, %s, %s, %s)", (id, book, author, isbn, description))
+  cursor.execute("INSERT INTO books ( Books, Author, ISBN, Description) VALUES ( %s, %s, %s, %s)", ( book, author, isbn, description))
+  conn.commit()
+  cursor.close()
+  # Create a URL for the book using the unique ID
+  # Redirect the user to the URL for the book
+  return jsonify({'success': True})
+
+@app.route('/delete', methods=['POST'])
+def delete_data():
+  cursor = conn.cursor(dictionary=True)
+  data = request.get_json()
+  book = data['book']
+  cursor.execute("DELETE FROM books WHERE Books=(%s)", (book,))
   conn.commit()
   cursor.close()
   # Create a URL for the book using the unique ID
@@ -124,6 +134,9 @@ def book(book_id):
   cursor.close()
   return render_template('book.html', books=books)
 
+@app.route('/book')
+def books():
+  return render_template('books.html')
 
 if __name__ == '__main__':
     app.run()

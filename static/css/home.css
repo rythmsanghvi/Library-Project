@@ -9,9 +9,7 @@ body {
     color: red;
     font-weight: bold;
   }
-* {
-    box-sizing: border-box;
-}
+
 label{
     color: black;
 }

@@ -1,55 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Library Database</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-      </head>
-      <body>
-        <center><h1 id="title">Sadma Library Management</h1></center>
-        <div id="random">
-          <div id="form-div">
-            <center><h1>Enter Book Details</h1></center>
-            <form id="add-form">
-              <label>
-                ID:
-                <input type="number" id="ID" required>
-              </label>
-              <br>
-              <label>
-                Book:
-                <input type="text" id="Book" required>
-              </label>
-              <br>
-              <label>
-                Author:
-                <input type="text" id="Author" required>
-              </label>
-              <br>
-              <label>
-                ISBN:
-                <input type="number" id="ISBN" minlength="13" maxlength="13" size="13" required>
-              </label>
-              <br>
-              
-              <label>
-                Description:
-                <input type="text" id="Description">
-              </label>
-              <br>
-              <!-- <label>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Library Database</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <center><h1 id="title">Sadma Library Management</h1></center>
+    <div id="random">
+      <div id="form-div">
+        <center><h1>Enter Book Details</h1></center>
+        <form id="add-form">
+          <label>
+            Book:
+            <input type="text" id="Book" required />
+          </label>
+          <br />
+          <label>
+            Author:
+            <input type="text" id="Author" required />
+          </label>
+          <br />
+          <label>
+            ISBN:
+            <input
+              type="number"
+              id="ISBN"
+              minlength="13"
+              maxlength="13"
+              size="13"
+              required
+            />
+          </label>
+          <br />
+
+          <label>
+            Description:
+            <input type="text" id="Description" />
+          </label>
+          <br />
+          <!-- <label>
                 Image:
                 <input type="file" id="Image" accept="image/png, image/jpeg">
               </label>
               <br> -->
-              <button class="button-32" type="submit">Add</button>
-            </form>
-          </div>
-        <div id="table_div">
-          <center><h1>Book Data</h1></center>
+          <button class="button-32" type="submit">Add</button>
+        </form>
+        <br>
+        <form id="delete-form">
+          <label>
+            Book:
+            <input type="text" id="Book-del" required />
+          </label>
+          <button class="button-32" type="submit">Delete</button>
+        </form>
+      </div>
+      <div id="table_div">
+        <center><h1>Book Data</h1></center>
         <table id="table-c">
-
           <thead id="table-head">
             <tr>
               <th>Id</th>
@@ -58,18 +70,36 @@
               <th>ISBN</th>
             </tr>
           </thead>
-          <tbody name="tbody" id="tbody" class="tbody">
-          </tbody>
+          <tbody name="tbody" id="tbody" class="tbody"></tbody>
         </table>
+        <br />
+        <div id="viewall-div">
+          <center>
+            <button
+              id="viewall"
+              class="button-32"
+              type="submit"
+              onclick="location.href='/book'"
+            >
+              View All Books.
+            </button>
+          </center>
+        </div>
+      </div>
     </div>
-  </div>
     <div id="logout-div">
-    <center><button id="logout" class="button-32" type="submit" onclick="location.href='/logout'">Logout</button></center>
-  </div>
-
+      <center>
+        <button
+          id="logout"
+          class="button-32"
+          type="submit"
+          onclick="location.href='/logout'"
+        >
+          Logout
+        </button>
+      </center>
+    </div>
 
     <script src="{{ url_for('static', filename='js/data.js') }}"></script>
-
-      </body>
-
+  </body>
 </html>

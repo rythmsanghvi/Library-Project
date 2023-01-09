@@ -1,57 +1,61 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-body{
-    font-family:'Poppins', sans-serif;;
-    background: linear-gradient(90deg,lightblue,lightyellow);
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(90deg, lightblue, lightyellow);
 }
-#table-c{
-    font-size: 15px;
-    border-collapse:collapse;
-    width: auto;
-    margin: auto;
+#table-c {
+  font-size: 15px;
+  border-collapse: collapse;
+  width: auto;
+  margin: auto;
 }
-#table-c td, #table-c thead, #table-c th{
-    border: 1px solid rgb(141, 141, 141);
-    padding: 8px;
-}
-
-#table-c th{
-    background-color: rgb(0, 0, 0);
-    color: white;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: justify;
-    font-weight: 600;
+#table-c td,
+#table-c thead,
+#table-c th {
+  border: 1px solid rgb(141, 141, 141);
+  padding: 8px;
 }
 
-#table-c tr{
-    padding-top: 12px;
-    background-color: rgb(255, 255, 255);
+#table-c th {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: justify;
+  font-weight: 600;
 }
 
-#table-c tr:hover{
-    background-color: lightgrey;
+#table-c tr {
+  padding-top: 12px;
+  background-color: rgb(255, 255, 255);
 }
-td{
-    margin-top: 20px;
+
+#table-c tr:hover {
+  background-color: lightgrey;
 }
-#form-div{
-    flex: .5;
+td {
+  margin-top: 20px;
 }
-#add-form{
-    width: 50%;
-    margin: auto;
+#form-div {
+  flex: 0.5;
+}
+#add-form {
+  width: 50%;
+  margin: auto;
+}
+#delete-form {
+  width: 50%;
+  margin: auto;
 }
 label {
-    display: flex;
-    flex-direction:column;
-    font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
 }
-#random{
-    display: flex;
-    flex-direction: row;
+#random {
+  display: flex;
+  flex-direction: row;
 }
-
-
 
 /* CSS */
 .button-32 {
@@ -76,7 +80,7 @@ label {
 .button-32:not(:disabled):focus {
   outline: 0;
   background: #f4e603;
-  box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
 .button-32:disabled {
@@ -85,32 +89,33 @@ label {
   cursor: not-allowed;
 }
 
-#logout{
-    width: 20%;
+#logout {
+  width: 20%;
 }
 
-#logout-div{
-    margin: 50px 0 50px 0;
+#logout-div {
+  margin: 50px 0 50px 0;
 }
 
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 2px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
 
-input[type=text], input[type="number"] {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 2px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-  /* Add a background color when the inputs get focus */
-  input[type=text]:focus, input[type="number"]:focus{
-    background-color: #ddd;
-    outline: none;
-  }
+/* Add a background color when the inputs get focus */
+input[type="text"]:focus,
+input[type="number"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
 
-#table_div{
-    flex: 0.5;
+#table_div {
+  flex: 0.5;
 }
 
 input::-webkit-outer-spin-button,
@@ -119,7 +124,14 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+#title {
+  font-size: 50px;
+}
 
-#title{
-    font-size:50px;
+#viewall-div {
+  margin: auto;
+}
+
+#viewall {
+  width: 50%;
 }
