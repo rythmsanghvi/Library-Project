@@ -14,13 +14,15 @@ label{
     color: black;
 }
 #main-h1{
-    font-size: 40px;
+    font-size: 50px;
+    margin-top: 20px;
 }
 #main-div{
     display: flex;
     flex-direction: row;
-    margin: auto;
+    /* margin: auto; */
     overflow: hidden;
+    margin-top: -50px;
 }
 #left-side{
     flex: 0.5;
@@ -31,13 +33,14 @@ label{
     padding: 10px 10px 10px 10px;
     background-color: #ff6699;
     color: white;
+    align-items: center;
+    margin: auto;
 }
 img{
     display: block;
     max-width: 100%;
     max-height: 100%;
 }
-
 
 /* Full-width input fields */
 input[type=text], input[type=password], input[type=email] {

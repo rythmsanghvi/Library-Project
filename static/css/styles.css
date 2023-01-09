@@ -47,6 +47,10 @@ td {
   width: 50%;
   margin: auto;
 }
+#lend-form{
+  width: 50%;
+  margin: auto;
+}
 label {
   display: flex;
   flex-direction: column;

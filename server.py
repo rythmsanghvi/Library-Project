@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session
 import mysql.connector
 from flask_cors import CORS
+from datetime import timedelta
+from datetime import date
 
 app = Flask(__name__)
 app.secret_key = '4221289613'
-
 CORS(app)
 conn = mysql.connector.connect(user='root',
                               password='user1234',
@@ -21,18 +22,15 @@ def login():
   if request.method == 'POST':
     email = request.form['email']
     password = request.form['password']
-
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM users WHERE email=%s AND password=%s", (email, password))
     user = cursor.fetchone()
     cursor.close()
-
     if user is not None:
         session['email'] = email
         return redirect(url_for('data'))
     else:
       error = 'Invalid email or password'
-
   return render_template('home.html', error=error)
 
 @app.route('/signup', methods=['GET','POST'])
@@ -42,12 +40,10 @@ def signup():
     name = request.json['name']
     email = request.json['email']
     password = request.json['password']
-
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM users WHERE email=%s", (email,))
     user = cursor.fetchone()
     cursor.close()
-
     if user is not None:
       error = 'Email already in use'
     else:
@@ -110,8 +106,6 @@ def add_data():
   cursor.execute("INSERT INTO books ( Books, Author, ISBN, Description) VALUES ( %s, %s, %s, %s)", ( book, author, isbn, description))
   conn.commit()
   cursor.close()
-  # Create a URL for the book using the unique ID
-  # Redirect the user to the URL for the book
   return jsonify({'success': True})
 
 @app.route('/delete', methods=['POST'])
@@ -122,8 +116,6 @@ def delete_data():
   cursor.execute("DELETE FROM books WHERE Books=(%s)", (book,))
   conn.commit()
   cursor.close()
-  # Create a URL for the book using the unique ID
-  # Redirect the user to the URL for the book
   return jsonify({'success': True})
 
 @app.route('/book/<book_id>')
@@ -137,6 +129,42 @@ def book(book_id):
 @app.route('/book')
 def books():
   return render_template('books.html')
+
+@app.route('/lend')
+def lend():
+  if session.get('email'):
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT name FROM users WHERE email=(%s)", (session['email'],))
+    user = cursor.fetchone()
+    cursor.close()
+  else:
+    user = None
+  if user:
+    return render_template('lend.html')
+  return redirect(url_for("login"))
+
+@app.route('/lend-add', methods=['POST'])
+def lend_add():
+  cursor = conn.cursor(dictionary=True)
+  data = request.get_json()
+  print(data)
+  name = data['name']
+  book = data['book']
+  today = date.today()
+  duedate = today + timedelta(days=15)
+  cardnumber = data['cardnumber']
+  cursor.execute("INSERT INTO lending ( Name, Book, Date, Due_Date, cardnumber) VALUES ( %s, %s, %s, %s, %s)", ( name,book, today, duedate, cardnumber))
+  conn.commit()
+  cursor.close()
+  return jsonify({'success': True})
+
+@app.route('/lend-fetch')
+def lend_fetch():
+  cursor = conn.cursor(dictionary=True)
+  cursor.execute("SELECT * FROM lending")
+  rows = cursor.fetchall()
+  cursor.close()
+  return jsonify(rows)
 
 if __name__ == '__main__':
     app.run()
