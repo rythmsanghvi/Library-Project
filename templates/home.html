@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <div id="main-div">
+      <div id="left-side">
+      <h2><span style="color: red;">RE</span> Developer</h2>
+      <center><h1 id="main-h1"><span style="color: red;">Sadma</span> Library</h1></center>
+      <img src="/static/assets/signup-library-icon.png" alt="fere"> 
+      </div>
+      <div id="right-side">
+      <h1>Welcome to the Home Page</h1>
+      <p>This is the home page of the website.</p>
+      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+      <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" method="post" action="/signup" id="signup-form">
+          <div class="container">
+            <h1 style="color: black;">Sign Up</h1>
+            <p style="color: black;">Please fill in this form to create an account.</p>
+            <hr>
+            <label for="name"><b>Name</b></label>
+            <input type="text" id="name" placeholder="Enter Name"name="name" required>
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" id="email" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="password" required>
+            <label>
+              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+            
+            <div id="error-message"></div>
+            
+          </div>
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+              <button type="submit" class="signupbtn">Sign Up</button>
+
+          </div>
+
+        </form>
+      </div>
+
+      <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
+      <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form class="modal-content" method="post" action="/login">
+          <div class="container">
+            <h1 style="color: black;">Login</h1>
+            <p style="color: black;">Please enter your email and password to log in.</p>
+            <hr>
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" id="email" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required>
+            <label>
+              <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+      
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+              <button type="submit" class="signupbtn">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    
+    </body>
+  </html>
+  
+
+           

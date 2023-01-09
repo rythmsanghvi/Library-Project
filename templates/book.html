@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <link rel="stylesheet" href="/static/css/book.css">
+    <!-- book.html -->
+
+<!-- Import the necessary Jinja2 libraries -->
+{% block content %}
+
+<!-- Display the book information from the database -->
+<center><h1 id="title">Book Information</h1></center>
+<div id="main-div">
+  <div id="img-div">
+  <img src="/static/assets/signup-library-icon-removebg-preview.png" alt="">
+</div>
+<div id="table-div">
+<table id="table-c">
+  <tr>
+    <th>ID</th>
+    <td>{{ books.ID }}</td>
+    </tr>
+    <tr>
+      <th>Book</th>
+      <td>{{ books.Books }}</td>
+    </tr>
+    <tr>
+      <th>Author</th>
+      <td>{{ books.Author }}</td>
+    </tr>
+    <tr>
+      <th>ISBN</th>
+      <td>{{ books.ISBN }}</td>
+    </tr>
+    <tr>
+    <th>Description</th>
+    <td>{{ books.Description }}</td>
+  </tr>
+</table>
+</div>
+
+{% endblock %}
+
+</body>
+</html>
