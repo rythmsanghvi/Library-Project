@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/book.css">
-    <script src="{{ url_for('static', filename='js/viewall.js') }}"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Document</title>
 </head>
@@ -35,13 +35,12 @@
     <!-- books.html -->
 <br><br>
 <!-- Display the book information from the database -->
-<center><h1 id="title">Book Information</h1></center>
+<center><h1 id="title"><span style="color: red;">Book</span> Database</h1></center>
+<br>
 <div id="main-div">
-
     <div id="table_div">
-        <center><h1>Book Data</h1></center>
-      <table id="table-c">
-
+        <center><h1><span style="color: red;">Book</span> Data</h1></center>
+      <table id="table-c" class="table-c">
         <thead id="table-head">
           <tr>
             <th>Id</th>
@@ -54,6 +53,30 @@
         </tbody>
       </table>
   </div>
+  <div id="search-div">
+    <form id="search-form">
+      <label for="search">
+      <input type="search" id="search" placeholder="Book, Author, ISBN">
+    </label>
+      <input type="submit" value="Search" class="button-32">
+    </form>
+  </div>
+  <div id="search-table-div" style="display: none;">
+    <center><h1><span style="color: red;">Search</span> Data</h1></center>
+      <table id="search-table" class="table-c">
+        <thead id="table-head-search">
+          <tr>
+            <th>Id</th>
+            <th>Book</th>
+            <th>Author</th>
+            <th>ISBN</th>
+          </tr>
+        </thead>
+        <tbody id="search-results" class="tbody">
+        </tbody>
+      </table>
+  </div>
 </div>
+<script src="{{ url_for('static', filename='js/viewall.js') }}"></script>
 </body>
 </html>

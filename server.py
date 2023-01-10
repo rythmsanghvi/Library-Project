@@ -20,18 +20,18 @@ def home():
 def login():
   error = None
   if request.method == 'POST':
-    email = request.form['email']
-    password = request.form['password']
+    email = request.json['email']
+    password = request.json['password']
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM users WHERE email=%s AND password=%s", (email, password))
     user = cursor.fetchone()
     cursor.close()
     if user is not None:
         session['email'] = email
-        return redirect(url_for('data'))
+        return jsonify({'success':True})
     else:
       error = 'Invalid email or password'
-  return render_template('home.html', error=error)
+    return jsonify({'success':False,'error':error})
 
 @app.route('/signup', methods=['GET','POST'])
 def signup():
@@ -51,6 +51,7 @@ def signup():
       cursor.execute("INSERT INTO users (name, email, password) VALUES (%s, %s, %s)", (name, email, password))
       conn.commit()
       cursor.close()
+      session['email'] = email
       return jsonify({'success': True,})
   return jsonify({'success': False, 'error': error})
 
@@ -59,7 +60,7 @@ def logout():
   # Clear the session data
   session.clear()
   # Redirect the user to the login page
-  return redirect(url_for('login'))
+  return redirect(url_for('home'))
 
 @app.route('/data')
 def data():
@@ -147,7 +148,6 @@ def lend():
 def lend_add():
   cursor = conn.cursor(dictionary=True)
   data = request.get_json()
-  print(data)
   name = data['name']
   book = data['book']
   today = date.today()
@@ -165,6 +165,19 @@ def lend_fetch():
   rows = cursor.fetchall()
   cursor.close()
   return jsonify(rows)
+
+@app.route('/search', methods=['POST'])
+def search():
+  cursor = conn.cursor(dictionary=True)
+  data = request.get_json()
+  search_term = data['search_term']
+  query = "SELECT * FROM books WHERE Books=%s OR Author=%s OR ISBN=%s;"
+  cursor.execute(query, (search_term, search_term, search_term))
+  rows = cursor.fetchall()
+  cursor.close()
+  if rows:
+    return jsonify({'success': True, 'rows':rows})
+  return jsonify({'success': False})
 
 if __name__ == '__main__':
     app.run()

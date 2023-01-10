@@ -22,7 +22,7 @@ img {
   max-height: 100%;
 }
 
-#table-c {
+.table-c {
   margin: auto;
 }
 
@@ -39,15 +39,15 @@ td {
   border-collapse: collapse;
 }
 
-#table-c tr {
+.table-c tr {
   padding-top: 12px;
   background-color: rgb(255, 255, 255);
 }
 
-#table-c tr:hover {
+.table-c tr:hover {
   background-color: lightgrey;
 }
-#table-c th {
+.table-c th {
   background-color: rgb(0, 0, 0);
   color: white;
   padding-top: 12px;
@@ -55,9 +55,9 @@ td {
   text-align: justify;
   font-weight: 600;
 }
-#table-c td,
-#table-c thead,
-#table-c th {
+ td,
+ thead,
+ th {
   border: 1px solid rgb(141, 141, 141);
   padding: 8px;
 }
@@ -65,11 +65,6 @@ td {
   font-size: 50px;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 600;
-}
 
 .button-32 {
   background-color: #fff000;
@@ -102,8 +97,17 @@ label {
   cursor: not-allowed;
 }
 
+
+/* Add a background color when the inputs get focus */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="search"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 2px 0;
@@ -111,10 +115,9 @@ input[type="number"] {
   border: none;
   background: #f1f1f1;
 }
-
-/* Add a background color when the inputs get focus */
-input[type="text"]:focus,
-input[type="number"]:focus {
-  background-color: #ddd;
-  outline: none;
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  width: 100%;
 }

@@ -102,7 +102,8 @@ label {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+input[type="search"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 2px 0;
@@ -113,7 +114,8 @@ input[type="number"] {
 
 /* Add a background color when the inputs get focus */
 input[type="text"]:focus,
-input[type="number"]:focus {
+input[type="number"]:focus,
+input[type="search"]:focus {
   background-color: #ddd;
   outline: none;
 }

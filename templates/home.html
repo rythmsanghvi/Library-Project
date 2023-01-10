@@ -67,7 +67,7 @@
       <button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Login</button>
       <div id="id02" class="modal">
         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content" method="post" action="/login">
+        <form class="modal-content" method="post" id="login-form">
           <div class="container">
             <h1 style="color: black;">Login</h1>
             <p style="color: black;">Please enter your email and password to log in.</p>
@@ -79,6 +79,7 @@
             <label>
               <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
             </label>
+            <div id="error-login"></div>
             <div class="clearfix">
               <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
               <button type="submit" class="signupbtn">Login</button>

@@ -1,49 +1,56 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
 }
 #error-message {
-    color: red;
-    font-weight: bold;
-  }
+  color: red;
+  font-weight: bold;
+}
 
-label{
-    color: black;
+#error-login {
+  color: red;
+  font-weight: bold;
 }
-#main-h1{
-    font-size: 50px;
-    margin-top: 20px;
+
+label {
+  color: black;
 }
-#main-div{
-    display: flex;
-    flex-direction: row;
-    /* margin: auto; */
-    overflow: hidden;
-    margin-top: -50px;
+#main-h1 {
+  font-size: 50px;
+  margin-top: 20px;
 }
-#left-side{
-    flex: 0.5;
-    padding: 10px;
+#main-div {
+  display: flex;
+  flex-direction: row;
+  /* margin: auto; */
+  overflow: hidden;
+  margin-top: -50px;
 }
-#right-side{
-    flex: 0.5;
-    padding: 10px 10px 10px 10px;
-    background-color: #ff6699;
-    color: white;
-    align-items: center;
-    margin: auto;
+#left-side {
+  flex: 0.5;
+  padding: 10px;
 }
-img{
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
+#right-side {
+  flex: 0.5;
+  padding: 10px 10px 10px 10px;
+  background-color: #ff6699;
+  color: white;
+  align-items: center;
+  margin: auto;
+}
+img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email] {
+input[type="text"],
+input[type="password"],
+input[type="email"] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -53,14 +60,16 @@ input[type=text], input[type=password], input[type=email] {
 }
 
 /* Add a background color when the inputs get focus */
-input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
   background-color: #ddd;
   outline: none;
 }
 
 /* Set a style for all buttons */
 button {
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -71,7 +80,7 @@ button {
 }
 
 button:hover {
-  opacity:1;
+  opacity: 1;
 }
 
 /* Extra styles for the cancel button */
@@ -81,7 +90,8 @@ button:hover {
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn, .signupbtn {
+.cancelbtn,
+.signupbtn {
   float: left;
   width: 50%;
 }
@@ -118,7 +128,7 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
- 
+
 /* The Close Button (x) */
 .close {
   position: absolute;
@@ -144,7 +154,8 @@ hr {
 
 /* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-     width: 100%;
+  .cancelbtn,
+  .signupbtn {
+    width: 100%;
   }
 }
