@@ -37,7 +37,7 @@
     <div id="random">
       <div id="form-div">
         <center><h1>Enter Book Details</h1></center>
-        <form id="add-form">
+        <form id="add-form" class="forms">
           <label>
             Book:
             <input type="text" id="Book" required />
@@ -69,12 +69,36 @@
           <button class="button-32" type="submit">Add</button>
         </form>
         <br />
-        <form id="delete-form">
+        <form id="delete-form" class="forms">
           <label>
             Book:
             <input type="text" id="Book-del" required />
           </label>
           <button class="button-32" type="submit">Delete</button>
+        </form>
+        <br />
+        <form id="update-form">
+          <label>
+            Book:
+            <input type="text" id="Book-upd" required />
+          </label>
+          <label>
+            Author:
+            <input type="text" id="Author-upd"/>
+          </label>
+          <label>
+            ISBN:
+            <input type="number"
+            minlength="13"
+            maxlength="13"
+            size="13"
+            id="ISBN-upd"/>
+          </label>
+          <label>
+            Description
+            <input type="text" id="Desc-upd"/>
+          </label>
+          <button class="button-32" type="submit">Update</button>
         </form>
       </div>
       <div id="table_div">
@@ -99,7 +123,7 @@
               type="submit"
               onclick="location.href='/book'"
             >
-              View All Books.
+              View All Books
             </button>
           </center>
         </div>

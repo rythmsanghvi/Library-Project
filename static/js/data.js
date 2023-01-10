@@ -80,6 +80,38 @@ document.getElementById("delete-form").addEventListener("submit", function (e) {
   deleteData();
 });
 
+function updateData() {
+  // Get the data from the form
+  const book = document.getElementById("Book-upd").value;
+  const author = document.getElementById("Author-upd").value;
+  const isbn = document.getElementById("ISBN-upd").value;
+  const desc = document.getElementById("Desc-upd").value;
+
+  // Send an HTTP POST request to the server with the data
+  fetch("http://127.0.0.1:5000/update", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({book, author, isbn, desc}),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        alert("Book updated successfully.");
+        document.getElementById("update-form").reset();
+        displayData();
+      } else {
+        alert("Error updating data. Book not in Database.");
+      }
+    });
+}
+
+document.getElementById("update-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  updateData();
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   // Call the displayData function when the document is ready
   displayData();

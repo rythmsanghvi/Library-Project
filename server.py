@@ -119,6 +119,30 @@ def delete_data():
   cursor.close()
   return jsonify({'success': True})
 
+@app.route('/update', methods=['POST'])
+def update_data():
+  cursor = conn.cursor(dictionary=True)
+  data = request.get_json()
+  book = data['book']
+  cursor.execute("SELECT * FROM books WHERE Books=%s", (book,))
+  value = cursor.fetchone()
+  if value:
+    author = data['author']
+    if author:
+      cursor.execute("UPDATE books SET Author =(%s) WHERE Books=(%s)", (author,book))
+      conn.commit()
+    isbn = data['isbn']
+    if isbn:
+      cursor.execute("UPDATE books SET ISBN =(%s) WHERE Books=(%s)", (isbn,book))
+      conn.commit()
+    desc = data['desc']
+    if desc:
+      cursor.execute("UPDATE books SET Description =(%s) WHERE Books=(%s)", (desc,book))
+      conn.commit()
+    cursor.close()
+    return jsonify({'success': True})
+  return jsonify({'success': False})
+
 @app.route('/book/<book_id>')
 def book(book_id):
   cursor = conn.cursor(dictionary=True)
