@@ -61,7 +61,7 @@ function deleteData() {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(book),
+    body: JSON.stringify({book,}),
   })
     .then((response) => response.json())
     .then((data) => {

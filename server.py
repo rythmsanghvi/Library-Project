@@ -51,7 +51,7 @@ def signup():
       cursor.execute("INSERT INTO users (name, email, password) VALUES (%s, %s, %s)", (name, email, password))
       conn.commit()
       cursor.close()
-      return redirect(url_for('login'))
+      return jsonify({'success': True,})
   return jsonify({'success': False, 'error': error})
 
 @app.route('/logout')
