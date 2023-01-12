@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Library Database</title>
+    <title>Library Database Management</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/styles.css') }}"
@@ -33,39 +33,39 @@
         </ul>
       </div>
     </nav>
-    <center><h1 id="title"><span style="color: red;">Sadma</span> Library Management</h1></center>
+    <center><h1 id="title"><span style="color: red;">RE</span> Library Management</h1></center>
     <div id="random">
       <div id="form-div">
         <center><h1>Enter Book Details</h1></center>
         <form id="add-form" class="forms">
           <label>
             Book:
-            <input type="text" id="Book" required />
+
           </label>
+          <input type="text" id="Book" required />
           <br />
           <label>
             Author:
-            <input type="text" id="Author" required />
           </label>
+          <input type="text" id="Author" required />
           <br />
           <label>
             ISBN:
-            <input
-              type="number"
-              id="ISBN"
-              minlength="13"
-              maxlength="13"
-              size="13"
-              required
-            />
           </label>
+          <input
+          type="number"
+          id="ISBN"
+          minlength="13"
+          maxlength="13"
+          size="13"
+          required
+        />
           <br />
-
           <label>
             Description:
-            <input type="text" id="Description" />
           </label>
-          <br />
+          <input type="text" id="Description" />
+          <br /> <br>
           <button class="button-32" type="submit">Add</button>
         </form>
         <br />

@@ -30,7 +30,7 @@
         </ul>
       </div>
     </nav>
-    <center><h1 id="main-h1"><span style="color: red;">Sadma</span> Library</h1></center>
+    <center><h1 id="main-h1"><span style="color: red;">RE</span> Library</h1></center>
     <div id="main-div">
       <div id="left-side">
       <img src="static/assets/signup-library-icon-removebg-preview (2).png" alt="Hero-Image"> 
@@ -39,7 +39,8 @@
         <center>
       <h1>Welcome to the Library</h1>
       <p>Login/Signup Below.</p>
-      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+      <div id="loginsignupdiv">
+      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" id="signup-btn">Sign Up</button>
       <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
         <form class="modal-content" method="post" action="/signup" id="signup-form">
@@ -87,6 +88,7 @@
           </div>
         </form>
       </div>
+    </div>
     </center>
       </div>
     </div>

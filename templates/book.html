@@ -34,13 +34,13 @@
       </div>
     </nav>
 <!-- Display the book information from the database -->
-<center><h1 id="title">Book Information</h1></center>
+<center><h1 id="title"><span style="color: red;">Book</span> Information</h1></center>
 <div id="main-div">
   <div id="img-div">
   <img src="/static/assets/signup-library-icon-removebg-preview.png" alt="">
 </div>
 <div id="table-div">
-<table id="table-c">
+<table class="table-c">
   <tr>
     <th>ID</th>
     <td>{{ books.ID }}</td>
@@ -64,5 +64,6 @@
 </table>
 </div>
 {% endblock %}
+
 </body>
 </html>

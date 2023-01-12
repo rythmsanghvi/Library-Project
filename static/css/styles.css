@@ -9,6 +9,9 @@ body {
   width: auto;
   margin: auto;
 }
+nav{
+  margin-bottom: 20px;
+}
 #table-c td,
 #table-c thead,
 #table-c th {
@@ -48,7 +51,12 @@ td {
   margin: auto;
 }
 
-#update-form{
+#lend-form{
+  width: 50%;
+  margin: auto;
+}
+
+#update-form {
   width: 50%;
   margin: auto;
 }
@@ -65,9 +73,9 @@ label {
 
 /* CSS */
 .button-32 {
-  background-color: #fff000;
+  background-color: red;
   border-radius: 12px;
-  color: #000;
+  color: white;
   cursor: pointer;
   font-weight: bold;
   padding: 10px 15px;
@@ -85,7 +93,7 @@ label {
 .button-32:not(:disabled):hover,
 .button-32:not(:disabled):focus {
   outline: 0;
-  background: #f4e603;
+  background: rgb(236, 1, 1);
   box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2), 0 3px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
